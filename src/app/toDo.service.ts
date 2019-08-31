@@ -28,12 +28,22 @@ export class ToDoService {
     this.items.splice(id, 1);
   }
 
+
   addTodo(formElement) {
     this.items.push({
       isCompleted: false,
       name: formElement.value.newTodo,
       id: this.items.length
     });
+  }
+
+  changeStatus(index) {
+    const selectedItem = this.items[index];
+    if (selectedItem.isCompleted) {
+      selectedItem.isCompleted = false;
+    } else {
+      selectedItem.isCompleted = true;
+    }
   }
 
 }

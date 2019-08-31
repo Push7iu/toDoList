@@ -1,3 +1,8 @@
-<span>
+<span [ngClass]="{
+  'done': item.isCompleted == true,
+  'toDo' : item.isCompleted == false
+}">
+  <button (click)="onChangeStatus(index)">></button>
   {{ item.isCompleted }} {{ item.name }}
+  <button (click)="onDeleteItem(index)">></button>
 </span>

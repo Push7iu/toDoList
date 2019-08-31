@@ -1,3 +1,4 @@
+import { ToDoService } from './../../toDo.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -8,10 +9,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ItemListTodoComponent implements OnInit {
 
   @Input() item: {isCompleted: boolean, name: string, id: number};
-
-  constructor() { }
+  @Input() index: boolean;
+  constructor(private todoService: ToDoService) { }
 
   ngOnInit() {
   }
 
+  onChangeStatus(index) {
+    this.todoService.changeStatus(index);
+  }
+
+  onDeleteItem(index) {
+    this.todoService.deleteItem(index);
+  }
 }

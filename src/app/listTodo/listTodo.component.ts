@@ -1,5 +1,5 @@
 import { ToDoService } from './../toDo.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-todo',
@@ -13,6 +13,7 @@ export class ListTodoComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.todoService.items;
+    console.log(this.items);
   }
 
 }
